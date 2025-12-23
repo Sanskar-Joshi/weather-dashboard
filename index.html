@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App | Sanskar Joshi</title>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/1163/1163624.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter city name"
+          spellcheck="false"
+        />
+        <button id="searchBtn">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
+            alt="search"
+            style="width: 20px; filter: invert(0.5)"
+          />
+        </button>
+      </div>
+
+      <div class="weather" style="display: none">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/869/869869.png"
+          class="weather-icon"
+        />
+        <h1 class="temp">22°c</h1>
+        <h2 class="city">Ambaji</h2>
+
+        <div class="details">
+          <div class="col">
+            <i class="fa-solid fa-water"></i>
+            <div>
+              <p class="humidity">50%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-wind"></i>
+            <div>
+              <p class="wind">15 km/h</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
