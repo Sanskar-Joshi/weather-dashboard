@@ -5,17 +5,20 @@ const apiUrl =
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const weatherCard = document.querySelector(".weather");
+const errorDiv = document.querySelector(".error");
 
 async function checkWeather(city) {
   try {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
     if (response.status == 404) {
-      alert("Invalid City Name");
+      // If city is invalid: Show Error, Hide Weather
+      errorDiv.style.display = "block";
+      weatherCard.classList.remove("active");
+      weatherCard.style.display = "none";
     } else {
       var data = await response.json();
-      // This logs the real data to your console so you can see it!
-      console.log("✅ Data Received:", data);
 
       // Update the HTML elements with real data
       document.querySelector(".city").innerHTML = data.name;
@@ -24,7 +27,7 @@ async function checkWeather(city) {
       document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
       document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
-      // Update the Image based on weather condition
+      // Cleaner Image Logic
       if (data.weather[0].main == "Clouds") {
         weatherIcon.src =
           "https://cdn-icons-png.flaticon.com/512/1163/1163624.png";
@@ -40,13 +43,22 @@ async function checkWeather(city) {
       } else if (data.weather[0].main == "Mist") {
         weatherIcon.src =
           "https://cdn-icons-png.flaticon.com/512/4005/4005901.png";
+      } else if (data.weather[0].main == "Snow") {
+        weatherIcon.src =
+          "https://cdn-icons-png.flaticon.com/512/2315/2315309.png";
       }
 
-      document.querySelector(".weather").style.display = "block";
-      console.log("✅ Weather Card Updated!");
+      // If valid: Hide Error, Show Weather with Animation
+      errorDiv.style.display = "none";
+      weatherCard.style.display = "block";
+
+      // We use small timeout or class toggle to trigger CSS animation properly
+      weatherCard.classList.remove("active");
+      void weatherCard.offsetWidth;
+      weatherCard.classList.add("active");
     }
   } catch (error) {
-    console.error("❌ THE CODE CRASHED HERE:", error);
+    console.error("Error fetching weather data:", error);
   }
 }
 
@@ -60,13 +72,3 @@ searchBox.addEventListener("keydown", (event) => {
     checkWeather(searchBox.value);
   }
 });
-
-// Debugging Checks - Let's see what is missing
-//   if (!document.querySelector(".city"))
-//     console.error("❌ Error: Missing element with class '.city'");
-//   if (!document.querySelector(".temp"))
-//     console.error("❌ Error: Missing element with class '.temp'");
-//   if (!document.querySelector(".humidity"))
-//     console.error("❌ Error: Missing element with class '.humidity'");
-//   if (!document.querySelector(".wind"))
-//     console.error("❌ Error: Missing element with class '.wind'");
