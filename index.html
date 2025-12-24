@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App | Sanskar Joshi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="icon"
-      href="https://cdn-icons-png.flaticon.com/512/1163/1163624.png"
-      type="image/png"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -25,18 +26,19 @@
           spellcheck="false"
         />
         <button id="searchBtn">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
-            alt="search"
-            style="width: 20px; filter: invert(0.5)"
-          />
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <div class="weather" style="display: none">
+      <div class="error">
+        <p>Invalid City Name</p>
+      </div>
+
+      <div class="weather">
         <img
           src="https://cdn-icons-png.flaticon.com/512/869/869869.png"
           class="weather-icon"
+          alt="weather-icon"
         />
         <h1 class="temp">22°c</h1>
         <h2 class="city">Ambaji</h2>
