@@ -24,6 +24,7 @@ body {
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
+  transition: transform 0.3s;
 }
 
 .search {
@@ -54,6 +55,17 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.search button:hover {
+  background: #d4f1ec;
+  transform: scale(1.05);
+}
+
+.search button i {
+  color: #555;
+  font-size: 20px;
 }
 
 .weather-icon {
@@ -91,13 +103,41 @@ body {
   margin-right: 10px;
 }
 
-.col img {
-  width: 40px;
-  margin-right: 10px;
-}
-
 .humidity,
 .wind {
   font-size: 28px;
   margin-top: -6px;
+}
+
+.weather {
+  display: none;
+}
+
+.weather.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.error p {
+  color: #ffcccc;
+  font-weight: 600;
 }
