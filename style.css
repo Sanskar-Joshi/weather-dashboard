@@ -141,3 +141,57 @@ body {
   color: #ffcccc;
   font-weight: 600;
 }
+
+/* --- RESPONSIVE DESIGN FOR MOBILE --- */
+@media (max-width: 500px) {
+  .card {
+    width: 90%;
+    /* Reduce side padding from 35px to 20px to give content more room */
+    padding: 30px 20px; 
+  }
+
+  .search {
+    /* Stack elements if needed, but here we just reduce spacing */
+    gap: 10px; 
+  }
+
+  .search input {
+    /* Make text slightly smaller and padding tighter */
+    padding: 10px 15px;
+    height: 50px; /* Reduce height slightly */
+    font-size: 16px;
+    margin-right: 10px; /* Reduce gap between input and button */
+  }
+
+  .search button {
+    /* Make the button slightly smaller to fit better */
+    width: 50px;
+    height: 50px;
+  }
+
+  .search button img {
+    width: 16px; /* Adjust icon size inside button if needed */
+  }
+  
+  .weather-icon {
+    width: 140px; /* Make the main icon slightly smaller on mobile */
+    margin-top: 20px;
+  }
+
+  .weather h1 {
+    font-size: 60px; /* Adjust temperature font size */
+  }
+
+  .weather h2 {
+    font-size: 35px; /* Adjust city font size */
+  }
+
+  .details {
+    padding: 0 10px; /* Reduce internal padding for details */
+    margin-top: 30px;
+  }
+  
+  .col i {
+      font-size: 30px; /* Smaller icons for wind/humidity */
+  }
+}
