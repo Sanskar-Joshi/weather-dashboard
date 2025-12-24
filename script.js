@@ -72,3 +72,4 @@ searchBox.addEventListener("keydown", (event) => {
     checkWeather(searchBox.value);
   }
 });
+checkWeather("Ambaji");
